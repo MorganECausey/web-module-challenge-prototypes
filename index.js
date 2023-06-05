@@ -16,22 +16,24 @@
 */
 
 function Person(obj) {
+
   this.name = obj.name;
   this.age = obj.age;
-  this.eat = function(food) {};
-  this.speak = function( ) {
+  this.eat = function(food, string) {
+    console.log(this);
+        return food = [];
+  }
+  this.toString = function( ) {
     console.log(this);
     return `${this.name}, ${this.age}`;
   }
   this.poop = function() {
+    console.log(this);
       this.stomach = [];
     }
-    this.toString = function() {
-          return `${this.name}, ${this.age}`;
-        }
 }
  const morgan = new Person({name: "Morgan", age: 50});
-morgan.speak();
+morgan.toString();
 
 
 /*
@@ -51,6 +53,23 @@ morgan.speak();
 */
 
 function Car(obj) {
+  this.model = obj.model;
+  this.milesPerGallon = obj.milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+  this.fill = function(gallons) {
+    this.tank += gallons;
+    this.odometer += gallons * this.milesPerGallon;
+  }
+  this.drive = function(distance) {
+    if (this.odometer > distance) {
+      return "I ran out of fuel at " + this.odometer + " miles!";
+    } else {
+      this.odometer -= distance;
+      this.tank += distance * this.milesPerGallon;
+      return "I'm driving " + distance + " miles!";
+    }
+  }
 
 }
 
@@ -63,10 +82,16 @@ function Car(obj) {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
-function Baby(obj) {
-
+function Baby(Person) {
+  this.name = Person.name;
+    this.age = Person.age;
+    this.favoriteToy = Person.favoriteToy;
+    this.play = function() {
+      return "Playing with " + this.favoriteToy;
+    }
+    console.log(this);
 }
-
+const ella = new Baby({name: "ella", age: 1}); 
 
 /* 
   TASK 4
