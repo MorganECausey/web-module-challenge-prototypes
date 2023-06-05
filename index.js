@@ -15,9 +15,23 @@
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(obj) {
+  this.name = obj.name;
+  this.age = obj.age;
+  this.eat = function(food) {};
+  this.speak = function( ) {
+    console.log(this);
+    return `${this.name}, ${this.age}`;
+  }
+  this.poop = function() {
+      this.stomach = [];
+    }
+    this.toString = function() {
+          return `${this.name}, ${this.age}`;
+        }
 }
+ const morgan = new Person({name: "Morgan", age: 50});
+morgan.speak();
 
 
 /*
@@ -36,7 +50,7 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(obj) {
 
 }
 
@@ -49,7 +63,7 @@ function Car() {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
-function Baby() {
+function Baby(obj) {
 
 }
 
