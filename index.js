@@ -15,22 +15,22 @@
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person(obj) {
+function Person(name, age) {
 
-  this.name = obj.name;
-  this.age = obj.age;
-  this.eat = function(food, string) {
-    console.log(this);
-        return food = [];
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+}
+Person.prototype.eat = function(edible) {
+  if(this.stomach.length < 10){
+    this.stomach.push(edible);
   }
-  this.toString = function( ) {
-    console.log(this);
-    return `${this.name}, ${this.age}`;
-  }
-  this.poop = function() {
-    console.log(this);
-      this.stomach = [];
-    }
+}
+Person.prototype.poop = function() {
+  this.stomach = [];
+}
+Person.prototype.toString = function() {
+  return `${this.name}, ${this.age}`;
 }
  const morgan = new Person({name: "Morgan", age: 50});
 morgan.toString();
